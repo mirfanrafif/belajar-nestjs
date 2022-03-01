@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { createConnection } from 'typeorm';
+import { DATABASE_CONNECTION } from './database.constant';
 
 const connection = [
   {
-    provide: 'DATABASE_CONNECTION',
+    provide: DATABASE_CONNECTION,
     useFactory: async () => createConnection(),
   },
 ];
