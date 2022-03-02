@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { DATABASE_CONNECTION } from 'src/core/database/database.constant';
 import { DatabaseModule } from 'src/core/database/database.module';
-import { USERS_REPOSITORY } from 'src/users/user.constant';
+import { USERS_REPOSITORY } from 'src/core/repository/user-repository/user.constant';
 import { User } from 'src/users/users.entity';
 import { Connection } from 'typeorm';
 
