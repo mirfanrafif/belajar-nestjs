@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -9,9 +10,9 @@ import {
   Put,
   UseFilters,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
-import { UserDto } from './users.dto';
-import { User } from '../core/repository/user-repository/users.entity';
+import { UserRequestDto } from './users.dto';
 import { UsersService } from './users.service';
 import { DbexceptionFilter } from 'src/utils/dbexception-filter.filter';
 import { JwtAuthGuard } from 'src/auth/auth.guard';
@@ -22,13 +23,14 @@ import { JwtAuthGuard } from 'src/auth/auth.guard';
 export class UsersController {
   constructor(private service: UsersService) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
-  getAll(): Promise<User[]> {
+  getAll() {
     return this.service.getAll();
   }
 
   @Post()
-  create(@Body() userDto: UserDto) {
+  create(@Body() userDto: UserRequestDto) {
     return this.service.create(userDto);
   }
 
@@ -38,7 +40,10 @@ export class UsersController {
   }
 
   @Put(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() newUser: UserDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() newUser: UserRequestDto,
+  ) {
     return this.service.update(id, newUser);
   }
 
