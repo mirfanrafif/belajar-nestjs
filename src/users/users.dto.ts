@@ -9,4 +9,12 @@ export class UserDto {
   @IsNotEmpty()
   @ApiProperty()
   nohp: string;
+
+  @IsNotEmpty()
+  @ApiProperty()
+  username: string;
+
+  @IsNotEmpty()
+  @ApiProperty()
+  password: string;
 }
