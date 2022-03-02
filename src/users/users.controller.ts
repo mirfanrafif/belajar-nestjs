@@ -8,14 +8,17 @@ import {
   Post,
   Put,
   UseFilters,
+  UseGuards,
 } from '@nestjs/common';
 import { UserDto } from './users.dto';
 import { User } from '../core/repository/user-repository/users.entity';
 import { UsersService } from './users.service';
 import { DbexceptionFilter } from 'src/utils/dbexception-filter.filter';
+import { JwtAuthGuard } from 'src/auth/auth.guard';
 
 @Controller('users')
 @UseFilters(DbexceptionFilter)
+@UseGuards(JwtAuthGuard)
 export class UsersController {
   constructor(private service: UsersService) {}
 
