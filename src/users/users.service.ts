@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { USERS_REPOSITORY } from '../core/repository/user-repository/user.constant';
 import { UserFactoryService } from './user-factory.service';
 import { UserDto } from './users.dto';
-import { User } from './users.entity';
+import { User } from '../core/repository/user-repository/users.entity';
 
 @Injectable()
 export class UsersService {

@@ -1,0 +1,1 @@
+export const MENU_REPOSITORY = 'MENU_REPOSITORY';

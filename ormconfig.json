@@ -6,7 +6,7 @@
   "password": "Aremania87",
   "database": "belajar_nest",
   "entities": [
-    "dist/**/*.entity{.ts,.js}"
+    "dist/core/repository/**/*.entity{.ts,.js}"
   ],
   "synchronize": true
 }
