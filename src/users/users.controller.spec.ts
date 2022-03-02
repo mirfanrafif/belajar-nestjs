@@ -15,4 +15,8 @@ describe('UsersController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('get users should return list of users', () => {
+    expect(controller.getAll).toBeCalled();
+  });
 });
