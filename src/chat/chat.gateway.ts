@@ -19,7 +19,7 @@ export class ChatGateway {
     return data;
   }
 
-  sendMessage(data: MessageResponse[]) {
+  sendMessage(data) {
     this.server.emit('chat', data);
   }
 

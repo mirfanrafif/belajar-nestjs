@@ -4,7 +4,6 @@ import {
   DocumentMessage,
   ImageMessage,
   MessageRequest,
-  MessageRequestData,
   SendMessageResponseData,
   TextMessage,
 } from './chat.dto';

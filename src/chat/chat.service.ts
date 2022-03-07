@@ -67,4 +67,8 @@ export class ChatService {
       });
     });
   }
+
+  handleIncomingMessage(data) {
+    this.gateway.sendMessage(data);
+  }
 }
