@@ -1,4 +1,4 @@
-export type TextMessage = {
+export class TextMessage {
   id: string;
   phone: string;
   message: string;
@@ -9,9 +9,9 @@ export type TextMessage = {
   timestamp: number;
   category: string;
   receiver: number;
-};
+}
 
-export type ImageMessage = {
+export class ImageMessage extends TextMessage {
   id: string;
   phone: string;
   message: string;
@@ -24,9 +24,9 @@ export type ImageMessage = {
   receiver: number;
   image: string;
   url: string;
-};
+}
 
-export type DocumentMessage = {
+export class DocumentMessage extends TextMessage {
   id: string;
   phone: string;
   message: string;
@@ -39,4 +39,33 @@ export type DocumentMessage = {
   receiver: number;
   image: string;
   url: string;
-};
+}
+
+export class MessageRequestData {
+  phone: string;
+  message: string;
+  secret: boolean;
+  priority: boolean;
+}
+
+export class MessageRequest {
+  data: MessageRequestData[];
+}
+
+export class ApiResponse<T> {
+  status: boolean;
+  message: string;
+  data: T;
+}
+
+export class SendMessageResponseData {
+  quota: number;
+  message: Message[];
+}
+
+export class Message {
+  id: string;
+  phone: string;
+  message: string;
+  status: string;
+}
