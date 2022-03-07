@@ -17,7 +17,7 @@ export class ChatController {
   handleIncomingMessage(
     @Body() data: TextMessage | ImageMessage | DocumentMessage,
   ) {
-    console.log(data);
+    this.service.handleIncomingMessage(data);
   }
 
   @Post()
