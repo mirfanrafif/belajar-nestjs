@@ -1,3 +1,5 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class TextMessage {
   id: string;
   phone: string;
@@ -42,13 +44,20 @@ export class DocumentMessage extends TextMessage {
 }
 
 export class MessageRequestData {
+  @ApiProperty()
   phone: string;
+
+  @ApiProperty()
   message: string;
   secret: boolean;
   priority: boolean;
 }
 
 export class MessageRequest {
+  @ApiProperty()
+  salesId: number;
+
+  @ApiProperty()
   data: MessageRequestData[];
 }
 
@@ -67,5 +76,22 @@ export class Message {
   id: string;
   phone: string;
   message: string;
-  status: string;
+  status: MessageStatus;
+}
+
+export type MessageResponse = {
+  messageId: string;
+  senderId: string;
+  message: string;
+  consumerNumber: string;
+  status: MessageStatus;
+};
+
+enum MessageStatus {
+  sent = 'sent',
+  read = 'read',
+  cancel = 'cancel',
+  received = 'received',
+  reject = 'reject',
+  pending = 'pending',
 }

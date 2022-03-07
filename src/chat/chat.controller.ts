@@ -23,11 +23,8 @@ export class ChatController {
 
   @Post()
   sendMessage(
-    @Body() data: MessageRequestData[],
-  ): ApiResponse<SendMessageResponseData | null> {
-    const request: MessageRequest = {
-      data: data,
-    };
+    @Body() request: MessageRequest,
+  ): ApiResponse<SendMessageResponseData> {
     return this.service.sendMessage(request);
   }
 }

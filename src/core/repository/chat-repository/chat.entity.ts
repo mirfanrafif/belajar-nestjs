@@ -17,6 +17,6 @@ export class Chat {
   @Column()
   message: string;
 
-  @Column()
-  created_date: Date;
+  @Column({ type: 'datetime' })
+  created_date: string;
 }
