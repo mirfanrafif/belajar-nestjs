@@ -8,6 +8,7 @@ import { Server } from 'socket.io';
 import { MessageResponse } from './chat.dto';
 @WebSocketGateway({
   cors: true,
+  transports: ['websocket'],
   namespace: 'chats',
 })
 export class ChatGateway {
